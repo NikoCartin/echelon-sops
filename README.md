@@ -16,6 +16,10 @@ These documents serve as technical references for engineers and developers maint
 | ID | Title | Description |
 |----|-------|-------------|
 | **[SOP-001](SOP-001-membership-upgrade-modal.md)** | Editing the Membership Upgrade Modal | How to add, remove, or update freebies in the membership upgrade modal — covering both the Theme Customizer blocks and the cart logic in `membership-popup.liquid`. |
+| **[SOP-002](SOP-002-bazaarvoice-coding-setup.md)** | Bazaarvoice Coding Setup | Replacing Klaviyo widgets with Bazaarvoice inline ratings, and troubleshooting custom Liquid star-rating behaviors. |
+| **[SOP-003](SOP-003-ship-x-shipping-policy.md)** | Ship-X Shipping Policy & Setup | Configuring Ship-X scenarios, required product tags, and resolving checkout conflicts with Shopify manual rates. |
+| **[SOP-004](SOP-004-ssl-setup-putty.md)** | SSL Setup and Validation via PuTTY | DevOps procedure for connecting to internal servers via jump hosts to validate and fix Nginx SSL configurations. |
+| **[SOP-005](SOP-005-upsell-selleasy-app.md)** | Upsell & Cross-Sell App (Selleasy) | Architecture, configuration, and troubleshooting guide for implementing Selleasy campaigns and theme app blocks. |
 
 ## Reference Code
 
