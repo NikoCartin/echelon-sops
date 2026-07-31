@@ -1,0 +1,1332 @@
+{% liquid
+    assign productId = product.id
+    assign variantId = product.variants[0].id
+    assign one_year_variant = 30135749771346
+    assign two_year_variant = 32930539503698
+    assign bundle_product_1 = 37737276637383
+    assign variant_product = 44940605554887
+    assign bundle_product_2 = 44944771612871
+    assign one_year_monthly = section.settings.one_year_price | divided_by: 12.0
+    assign monthly_difference = section.settings.monthly_price | minus: one_year_monthly
+    assign one_year_savings = monthly_difference | times: 1200.0 | round
+    assign two_year_monthly =  section.settings.two_year_price | divided_by: 24
+
+  %}
+
+<div class="membership_modal" id="membershipModal">
+ <div class="membership_container">
+  <div class="freebies_container hide-on-mobile">
+   <h3>
+    Upgrade Your Premier Membership Now
+    & <b>Receive:</b>
+  </h3>
+    {% for freebie in section.blocks %}
+
+    <div class="freebie">
+     <div class="gift_image">
+      {% if freebie.settings.alt_image == blank %}
+      <img src="https:{{ freebie.settings.product_freebie.images[0] | image_url }}" class="{% if forloop.index0 == 0 %} warranty {% endif %}" loading="lazy">
+    {% else %}
+      <img src="https:{{ freebie.settings.alt_image.image | image_url }}" class="{% if freebie.settings.alt_title contains 'Warranty' %} warranty  {% endif %}" loading="lazy">
+    {% endif %}
+     </div>
+    {% if freebie.settings.alt_price == empty %}
+     {% assign price = freebie.settings.product_freebie.price %}
+     {% if price < freebie.settings.product_freebie.compare_at_price %}
+       {% assign price = freebie.settings.product_freebie.compare_at_price %}
+     {% endif %}
+   {% else %}
+     {% assign price = freebie.settings.alt_price | times: 100 %}
+   {% endif %}
+   <span
+   ><b>
+     {% if freebie.settings.alt_title == empty %}
+       {{ freebie.settings.product_freebie.title }}
+     {% else %}
+       {{ freebie.settings.alt_title }}
+     {% endif %}
+   </b></span
+ ><span> (value {{ price | money }})</span>
+    </div>
+    {% endfor %}
+    <p class="small-text"><em>*Availble for Active Members & Excludes Recovery Products Set at a Standard of 2 Years.</em></p>
+  </div>
+  <div class="options_container">
+   <span class="cancel_button"><img src="{{'btn-close.svg' | asset_url}}" width="50px" height="50px">Cancel</span>
+   <div class="mobile_heading hide-on-desktop">
+    <h2>Upgrade Fitness App Membership now, and save:</h2>
+  </div>
+    <div class="options">
+
+          <div class="column_header">
+          <h2>1-Year Access</h2>
+          <h6>Billed Yearly</h6>
+          </div>
+            <div class="pricing_block">
+            <div class="pricing">
+
+
+
+            <h6>Regular Monthly Price: ${{section.settings.monthly_price}}</h6>
+            <h6>1-Year Plan Monthly Price: {{ one_year_monthly | times: 100 | money }}</h6>
+            {% comment %} <p>1-Year Savings: {{ one_year_savings | money }}</p> {% endcomment %}
+             <p>1-Year Savings: $80</p>
+            </div>
+            </div>
+           <div class="upgrade_plans">
+            <div class="gift_container">
+             <h6>Free Gifts with Purchase:</h6>
+             {% assign num_freebies = section.blocks.size | minus:1 %}
+             {% assign one_year_value = 0 %}
+             {% for freebie in section.blocks limit:num_freebies %}
+                 <div class="gift" data-product-freebie-id="{{ freebie.settings.product_freebie.variants[0].id }}">
+                  <div class="gift_image">
+                  {% if freebie.settings.alt_image == blank %}
+                   <img src="https:{{ freebie.settings.product_freebie.images[0] | image_url }}" class="{% if freebie.settings.alt_title contains 'Warranty' %} warranty  {% endif %}" loading="lazy">
+                 {% else %}
+                   <img src="https:{{ freebie.settings.alt_image.image | image_url }}" class="{% if freebie.settings.alt_title contains 'Warranty' %} warranty  {% endif %}" loading="lazy">
+                 {% endif %}
+                 </div>
+                 <h6 class="gift_title">
+                  {% if freebie.settings.alt_title == empty %}
+                   {{ freebie.settings.product_freebie.title }}
+                 {% else %}
+                   {{ freebie.settings.alt_title }}
+                 {% endif %}
+                 </h6>
+                 <div class="gift_price">
+                 {% if freebie.settings.alt_price == empty %}
+                  {% assign price = freebie.settings.product_freebie.price %}
+                  {% if price < freebie.settings.product_freebie.compare_at_price %}
+                    {% assign price = freebie.settings.product_freebie.compare_at_price %}
+                  {% endif %}
+                {% else %}
+                  {% assign price = freebie.settings.alt_price | times: 100 %}
+                {% endif %}
+                {% assign one_year_value = one_year_value | plus: price %}
+                 <h6>
+                  <strike>{{ price | money }}</strike><br>
+                     <b>FREE</b>
+                 </h6>
+                 </div>
+                 </div>
+             {% endfor %}
+<div class="gift" data-product-freebie-id="">
+                  <div class="gift_image">
+                     <svg aria-hidden="true" focusable="false" role="presentation" class="" viewBox="0 0 100 100"><defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M44.36 67.09l-2.17.01h20.46V28.83H22.27v3.93M22.27 56.47V67.1h8.78l-2.18-.01"></path><path class="a" d="M36.62 59.5a5.83 5.83 0 0 0-5.84 5.83 5.84 5.84 0 0 0 11.68 0 5.84 5.84 0 0 0-5.84-5.83zM78 59.5a5.84 5.84 0 0 0-5.85 5.83 5.84 5.84 0 0 0 11.68 0A5.83 5.83 0 0 0 78 59.5z"></path><path class="a" d="M70.26 67.09l2.17.01h-9.78V34.03h12.31l15.06 15.06h4.67V67.1H83.57l2.18-.01"></path><path class="a" d="M66.95 49.1V38h5.49l11.04 11.03-16.53.07zM28.26 44.53H5.31M32.81 37.81h-15.3M32.81 51.25h-15.3"></path></svg>
+                 </div>
+                 <h6 class="gift_title">
+                   Free Shipping
+                 </h6>
+                 <div class="gift_price">
+
+
+                 <h6>
+                  <strike><span class="money">$299.00</span></strike><br>
+                     <b>FREE</b>
+                 </h6>
+                 </div>
+                 </div>
+             </div>
+             <div class="button_block">
+             <h6>Total value: $850</h6>
+             <h6><b>Price at checkout:</b> {{ section.settings.one_year_price | times: 100 | money }}</h6>
+             <span id="one_year_sub" class="fpwd_button dark freebie_upgrade">Upgrade to 1 year</span>
+             </div>
+           </div>
+
+<div class="column_separator"></div>
+
+          <div class="column_header">
+          <h2>2-Year Access</h2>
+          <h6>Billed Every 2-Years</h6>
+          </div>
+          <div class="pricing_block">
+          <span class="floating_badge"><b>Best Price</b> / Mo.</span>
+          <div class="pricing">
+
+              <h6>Regular Monthly Price: ${{section.settings.monthly_price}}</h6>
+              <h6>2-Year Plan Monthly Price: {{ two_year_monthly | times: 100 | money}}</h6>
+              {% comment %} <p>2-Year Savings: {{ section.settings.monthly_price | minus: two_year_monthly | times: 2400 | money }}</p> {% endcomment %}
+             <p>2-Year Savings: $260</p>
+          </div>
+          </div>
+          <div class="upgrade_plans">
+          <div class="gift_container">
+          <h6>Free Gifts with Purchase:</h6>
+          {% assign two_year_value = 0 %}
+              {% for freebie in section.blocks %}
+                  <div class="gift" data-product-freebie-id="{{ freebie.settings.product_freebie.variants[0].id }}">
+                   <div class="gift_image">
+                    {% if freebie.settings.alt_image == blank %}
+                    <img src="https:{{ freebie.settings.product_freebie.images[0] | image_url }}" class="{% if freebie.settings.alt_title contains 'Warranty' %} warranty  {% endif %}" loading="lazy">
+                  {% else %}
+                    <img src="https:{{ freebie.settings.alt_image.image | image_url }}" class="{% if freebie.settings.alt_title contains 'Warranty' %} warranty  {% endif %}" loading="lazy">
+                  {% endif %}
+                   </div>
+                  <h6 class="gift_title">                {% if freebie.settings.alt_title == empty %}
+                   {{ freebie.settings.product_freebie.title }}
+                 {% else %}
+                   {{ freebie.settings.alt_title }}
+                 {% endif %}</h6>
+                 <div class="gift_price">
+                 {% if freebie.settings.alt_price == empty %}
+                  {% assign price = freebie.settings.product_freebie.price %}
+                  {% if price < freebie.settings.product_freebie.compare_at_price %}
+                    {% assign price = freebie.settings.product_freebie.compare_at_price %}
+                  {% endif %}
+                {% else %}
+                  {% assign price = freebie.settings.alt_price | times: 100 %}
+                {% endif %}
+                {% assign two_year_value = two_year_value | plus: price %}
+                  <h6>
+                   <strike>{{ price | money }}</strike><br>
+                   <b>FREE</b>
+                  </h6>
+                  </div>
+                  </div>
+              {% endfor %}
+              <div class="gift" data-product-freebie-id="">
+                  <div class="gift_image">
+                     <svg aria-hidden="true" focusable="false" role="presentation" class="" viewBox="0 0 100 100"><defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M44.36 67.09l-2.17.01h20.46V28.83H22.27v3.93M22.27 56.47V67.1h8.78l-2.18-.01"/><path class="a" d="M36.62 59.5a5.83 5.83 0 0 0-5.84 5.83 5.84 5.84 0 0 0 11.68 0 5.84 5.84 0 0 0-5.84-5.83zM78 59.5a5.84 5.84 0 0 0-5.85 5.83 5.84 5.84 0 0 0 11.68 0A5.83 5.83 0 0 0 78 59.5z"/><path class="a" d="M70.26 67.09l2.17.01h-9.78V34.03h12.31l15.06 15.06h4.67V67.1H83.57l2.18-.01"/><path class="a" d="M66.95 49.1V38h5.49l11.04 11.03-16.53.07zM28.26 44.53H5.31M32.81 37.81h-15.3M32.81 51.25h-15.3"/></svg>
+                 </div>
+                 <h6 class="gift_title">
+                   Free Shipping
+                 </h6>
+                 <div class="gift_price">
+
+
+                 <h6>
+                  <strike><span class="money">$299.00</span></strike><br>
+                     <b>FREE</b>
+                 </h6>
+                 </div>
+                 </div>
+          </div>
+          <div class="button_block">
+          <h6>Total value: $1030</h6>
+          <h6><b>Price at checkout: </b> {{ section.settings.two_year_price | times: 100 | money}}</h6>
+          <span id="two_year_sub" class="fpwd_button dark freebie_upgrade">Upgrade to 2 years</span>
+          </div>
+          </div>
+
+    </div>
+    <span id="trial-button" class="fpwd_button light trial-button">CONTINUE MONTHLY PURCHASE</span>
+  </div>
+</div>
+</div>
+
+
+  <script>
+ document.addEventListener("DOMContentLoaded", function() {
+  const CONFIG = {
+    VARIANT_ID: Number("{{ variantId }}"),
+    MONTHLY_SUBSCRIPTION_ID: 43246953267399,
+    CHOICE_MONTHLY_ID: 44806098321607,
+    ROW_S: 43286590587079,
+    TEMP_SOUNDBAR: 40548747935943,
+    ONE_YEAR_VARIANT: Number("{{ one_year_variant }}"),
+    TWO_YEAR_VARIANT: Number("{{ two_year_variant }}"),
+    BUNDLE_PRODUCT_1: Number("{{ bundle_product_1 }}"),
+    VARIANT_PRODUCT: Number("{{ variant_product }}"),
+    BUNDLE_PRODUCT_2: Number("{{ bundle_product_2 }}"),
+    REDIRECT_DELAY: 100,
+    TOAST_DURATION: 500
+  };
+
+  // Cache DOM elements for better performance
+  const DOM = {
+    radioButtons: document.querySelectorAll(".individual-radio"),
+    addToCartButton: document.getElementById("individual-add-to-cart"),
+    addProductOnly: document.getElementById('add-product-only'),
+    addTrialButton: document.getElementById('trial-button'),
+    membershipPopup: document.querySelector("#membershipModal"),
+    cancelButton: document.querySelector('.cancel_button'),
+    oneYearButton: document.querySelector('#one_year_sub'),
+    twoYearButton: document.querySelector('#two_year_sub'),
+    upgradePlanButton: document.getElementById('upgrade-to-one-year'),
+    singleProductSelector: document.querySelector(".individual-product-selector[data-product-id]"),
+    productSelectors: document.querySelectorAll(".individual-product-selector"),
+    productSelectorShell: document.querySelector(".individual-product-selectors"),
+    dumbbellsCheckboxes: document.querySelectorAll('.dumbbells-checkbox'),
+    dumbbellsSelectors: document.querySelectorAll('.dumbbells-promotion-selector')
+  };
+
+  // App state
+  let state = {
+    isRequestInProgress: false,
+    selectedProductId: null,
+    selectedSubscriptionType: null,
+    cartItems: []
+  };
+
+  // Helper function to add dumbbells to cart items if checked
+  const addDumbbellsIfChecked = (items) => {
+    if (DOM.dumbbellsCheckboxes && DOM.dumbbellsCheckboxes.length > 0) {
+      DOM.dumbbellsCheckboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          const variantId = checkbox.dataset.variantId;
+          items.push({
+            id: variantId,
+            quantity: 1
+          });
+        }
+      });
+    }
+    return items;
+  };
+
+ function debounce(func, wait) {
+   let timeout;
+   return function(...args) {
+     clearTimeout(timeout);
+     timeout = setTimeout(() => func.apply(this, args), wait);
+   };
+}
+  // Helper functions
+  function normalizeId(id) {
+    return typeof id === 'string' ? Number(id) : id;
+  }
+  function generateUniqueKey(id) {
+    return id ? normalizeId(id) : Date.now().toString();
+  }
+  function createBundleProperties(mainProductId, relatedProductId) {
+    const bundleId = `bundle_${Date.now()}`;
+    return {
+      '_bundle_id': bundleId,
+      '_bundle_main_product': normalizeId(mainProductId),
+      '_bundle_related_product': normalizeId(relatedProductId),
+      '_bundle': normalizeId(mainProductId),
+      '_annual': normalizeId(relatedProductId),
+      '_no_gifts': DOM.productSelectorShell.classList.contains('no-gifts')
+    };
+  }
+  function findBundleItems(cart, mainProductId) {
+    return cart.items.filter(item =>
+      item.properties && (
+        (item.properties._bundle && normalizeId(item.properties._bundle) === normalizeId(mainProductId)) ||
+        (item.properties._bundle_main_product && normalizeId(item.properties._bundle_main_product) === normalizeId(mainProductId))
+      )
+    );
+  }
+  function getSelectedProduct() {
+    // Handle single product case
+    if (DOM.singleProductSelector && (!DOM.radioButtons || DOM.radioButtons.length === 0)) {
+      const productId = DOM.singleProductSelector.getAttribute('data-product-id');
+      return {
+        id: productId,
+        quantity: 1,
+        properties: createBundleProperties(productId, CONFIG.VARIANT_ID)
+      };
+    }
+
+    // Check radio buttons
+    for (const radio of DOM.radioButtons) {
+      if (radio.checked) {
+        return {
+          id: radio.dataset.productId,
+          quantity: 1,
+          properties: createBundleProperties(radio.dataset.productId, CONFIG.VARIANT_ID)
+        };
+      }
+    }
+
+    return null;
+  }
+  // UI Management class
+  const UI = {
+   _toastElement: null,
+   _toastTimer: null,
+    showLoadingOverlay() {
+      // Check if overlay already exists instead of removing and recreating
+      let overlay = document.getElementById('pdp-loading-overlay');
+
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'pdp-loading-overlay';
+        overlay.className = 'loading-overlay';
+        overlay.innerHTML = `
+          <div class="loading-spinner"></div>
+          <div class="loading-text">Processing your request...</div>
+        `;
+
+        // Apply styles once during creation
+        Object.assign(overlay.style, {
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(255, 255, 255, 0.7)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: '1000'
+        });
+
+        document.body.appendChild(overlay);
+      } else {
+        // Just show the existing overlay
+        overlay.style.display = 'flex';
+      }
+    },
+    hideLoadingOverlay() {
+      const overlay = document.getElementById('pdp-loading-overlay');
+      // Hide instead of removing to allow reuse
+      if (overlay) overlay.style.display = 'none';
+    },
+    showToast(message, type = 'success') {
+     clearTimeout(this._toastTimer);
+     if (!this._toastElement) {
+       this._toastElement = document.createElement('div');
+       this._toastElement.id = 'pdp-toast-message';
+       // Apply permanent styles once
+        Object.assign(this._toastElement.style, {
+          position: 'fixed',
+          bottom: '20px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          padding: '12px 24px',
+          borderRadius: '4px',
+          color: 'white',
+          zIndex: '1001',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
+          transition: 'opacity 0.2s ease'
+        });
+        document.body.appendChild(this._toastElement);
+     }
+     // Update only what changes
+     this._toastElement.className = `toast-message toast-${type}`;
+     this._toastElement.textContent = message;
+     this._toastElement.style.backgroundColor = type === 'success' ? '#4CAF50' : '#F44336';
+     this._toastElement.style.opacity = '0';
+     this._toastElement.style.display = 'block';
+     this._toastElement.offsetHeight;
+     this._toastElement.style.opacity = '1';
+     this._toastTimer = setTimeout(() => this.hideToast(), CONFIG.TOAST_DURATION);
+    },
+    hideToast() {
+      if (this._toastElement) {
+        this._toastElement.style.opacity = '0';
+
+        // Wait for animation to complete before hiding
+        setTimeout(() => {
+          this._toastElement.style.display = 'none';
+        }, 200); // Match transition duration
+      }
+    },
+   showMembershipPopup() {
+     if (DOM.membershipPopup) DOM.membershipPopup.style.display = 'flex';
+   },
+
+   hideMembershipPopup() {
+     if (DOM.membershipPopup) DOM.membershipPopup.style.display = 'none';
+   },
+
+   updateProductSelection(productId) {
+     // Clear all selections
+     DOM.productSelectors.forEach(selector => selector.classList.remove('selected'));
+
+     // Mark the selected one
+     DOM.radioButtons.forEach(radio => {
+       if (normalizeId(radio.dataset.productId) === normalizeId(productId)) {
+         radio.checked = true;
+         const parentSelector = radio.closest('.individual-product-selector');
+         if (parentSelector) parentSelector.classList.add('selected');
+       }
+     });
+   },
+   setButtonLoading(button, isLoading) {
+     if (!button) return;
+
+     if (!button._originalState) {
+       button._originalState = {
+         text: button.textContent,
+         disabled: button.disabled,
+         className: button.className
+       };
+     }
+
+     // Only update disabled state and text content
+     // The visual styling is now handled by the membership-buttons-loading class
+     if (isLoading) {
+       button.disabled = true;
+       button.textContent = 'Processing...';
+     } else {
+       button.disabled = button._originalState.disabled;
+       button.textContent = button._originalState.text;
+     }
+   },
+
+   setAllButtonsLoading(isLoading) {
+     // Use a single class toggle on body to batch all style changes
+     if (isLoading) {
+       document.body.classList.add('membership-buttons-loading');
+     } else {
+       document.body.classList.remove('membership-buttons-loading');
+     }
+
+     // Still update button states for text content but without forcing reflows
+     requestAnimationFrame(() => {
+       const buttons = [
+         DOM.addToCartButton,
+         DOM.addProductOnly,
+         DOM.addTrialButton,
+         DOM.oneYearButton,
+         DOM.twoYearButton,
+         DOM.upgradePlanButton,
+         DOM.cancelButton
+       ];
+
+       buttons.forEach(btn => {
+         if (btn) {
+           if (!btn._originalState) {
+             btn._originalState = {
+               text: btn.textContent,
+               disabled: btn.disabled
+             };
+           }
+
+           if (isLoading) {
+             btn.disabled = true;
+             btn.textContent = 'Processing...';
+           } else {
+             btn.disabled = btn._originalState.disabled;
+             btn.textContent = btn._originalState.text;
+           }
+         }
+       });
+     });
+   }
+ };
+
+  // Cart Management
+  const Cart = {
+    async getCart() {
+      try {
+        const response = await fetch('/cart.js');
+        if (!response.ok) {
+          throw new Error(`Error fetching cart: ${response.status}`);
+        }
+        const cart = await response.json();
+        state.cartItems = cart.items;
+        return cart;
+      } catch (error) {
+        console.error("Error fetching cart:", error);
+        UI.showToast("Couldn't retrieve cart information", 'error');
+        return { items: [] };
+      }
+    },
+
+    async addItems(items, successMessage = "Added to cart", cartData = null) {
+      if (!items || !items.length) {
+        UI.showToast("No items to add", 'error');
+        return Promise.reject(new Error("No items to add"));
+      }
+
+      // Clean up items array
+      const validItems = items.filter(item => item);
+      const isROWS = CONFIG.VARIANT_ID === CONFIG.ROW_S;
+      let soundbarInCart = false;
+      if (isROWS) {
+
+       if (state.cartItems && state.cartItems.length > 0) {
+          cartData = { items: state.cartItems };
+          soundbarInCart = cartData.items.some(item =>
+          normalizeId(item.variant_id) === CONFIG.TEMP_SOUNDBAR
+         );
+        }
+
+      }
+     if (isROWS) {
+         if (!soundbarInCart) {
+           validItems.push({
+             id: CONFIG.TEMP_SOUNDBAR,
+             quantity: 1
+           });
+         }
+      }
+
+      // Set loading state
+      state.isRequestInProgress = true;
+      UI.showLoadingOverlay();
+      UI.setAllButtonsLoading(true);
+
+      try {
+        // Check if we're adding a subscription
+        const isAddingSubscription = validItems.some(item =>
+          [CONFIG.MONTHLY_SUBSCRIPTION_ID, CONFIG.ONE_YEAR_VARIANT, CONFIG.TWO_YEAR_VARIANT].includes(normalizeId(item.id))
+        );
+
+        if (isAddingSubscription) {
+          // Use existing cart data if provided, otherwise fetch it
+          if (!cartData) {
+            cartData = await this.getCart();
+          }
+
+          const choiceMonthlyItem = cartData.items.find(item =>
+            normalizeId(item.variant_id) === CONFIG.CHOICE_MONTHLY_ID
+          );
+
+          if (choiceMonthlyItem) {
+            const updates = {};
+            updates[choiceMonthlyItem.key] = 0;
+            // Update cart and get the updated cart data
+            cartData = await this.updateItems(updates);
+          }
+        }
+
+        // Add items to cart
+        const response = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: validItems })
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(`Cart error: ${errorData.description || 'Unknown error'}`);
+        }
+
+        const data = await response.json();
+
+        // Update state with the latest cart data
+        if (data.items) {
+          state.cartItems = data.items;
+        }
+
+        // Show success and redirect
+        UI.showToast(successMessage, 'success');
+        setTimeout(() => {
+          window.location.href = "/cart";
+        }, CONFIG.REDIRECT_DELAY);
+
+        return data;
+      } catch (error) {
+        UI.showToast(error.message || "Error adding to cart", 'error');
+        console.error("Error adding to cart:", error);
+        throw error;
+      } finally {
+        state.isRequestInProgress = false;
+        UI.hideLoadingOverlay();
+        UI.setAllButtonsLoading(false);
+      }
+    },
+
+    async updateItems(updates) {
+      try {
+        const response = await fetch(`${window.Shopify.routes.root}cart/update.js`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ updates })
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        state.cartItems = data.items;
+        return data;
+      } catch (error) {
+        console.error('Error updating cart:', error);
+        UI.showToast("Error updating cart", 'error');
+        throw error;
+      }
+    }
+  };
+
+  // Subscription Management
+  const Subscription = {
+   getItems(type) {
+    const config = {
+      monthly: {
+        variantId: CONFIG.MONTHLY_SUBSCRIPTION_ID,
+        items: [CONFIG.MONTHLY_SUBSCRIPTION_ID],
+        specialProps: { '_bundle': generateUniqueKey() }
+      },
+      oneYear: {
+        variantId: CONFIG.ONE_YEAR_VARIANT,
+        items: [CONFIG.ONE_YEAR_VARIANT],
+        specialProps: null
+      },
+      twoYear: {
+        variantId: CONFIG.TWO_YEAR_VARIANT,
+        items: [CONFIG.BUNDLE_PRODUCT_2, CONFIG.TWO_YEAR_VARIANT],
+        specialProps: { '_annual': generateUniqueKey(CONFIG.VARIANT_ID) }
+      }
+    };
+
+    const { variantId, items, specialProps } = config[type];
+    const bundleProps = createBundleProperties(variantId, CONFIG.VARIANT_ID);
+
+    const cartItems = [
+      ...items.map(id => ({ id, quantity: 1, properties: bundleProps })),
+      {
+        id: CONFIG.VARIANT_ID,
+        quantity: 1,
+        properties: specialProps || undefined
+      }
+    ];
+
+    return addDumbbellsIfChecked(cartItems);
+  },
+
+  getMonthlyItems() { return this.getItems('monthly'); },
+  getOneYearItems() { return this.getItems('oneYear'); },
+  getTwoYearItems() { return this.getItems('twoYear'); }
+  };
+
+  // Event Handlers
+  function handleOneYearButtonClick() {
+    if (state.isRequestInProgress) return;
+    Cart.addItems(Subscription.getOneYearItems(), "One-year subscription added to cart");
+  }
+
+  function handleTwoYearButtonClick() {
+    if (state.isRequestInProgress) return;
+    Cart.addItems(Subscription.getTwoYearItems(), "Two-year subscription added to cart");
+  }
+
+  function handleTrialButtonClick() {
+    if (state.isRequestInProgress) return;
+
+    const selectedProduct = getSelectedProduct();
+    if (!selectedProduct) {
+      UI.showToast("No product selected for trial", 'error');
+      return;
+    }
+
+    const cartItems = addDumbbellsIfChecked([
+      selectedProduct,
+      {
+        id: CONFIG.VARIANT_ID,
+        quantity: 1,
+      }
+    ]);
+
+    Cart.addItems(cartItems, "Trial subscription added to cart");
+  }
+
+  function handleCancelButtonClick() {
+    if (state.isRequestInProgress) return;
+    const selectedProduct = getSelectedProduct();
+    if (selectedProduct) {
+      const cartItems = addDumbbellsIfChecked([
+        selectedProduct,
+        {
+          id: CONFIG.VARIANT_ID,
+          quantity: 1,
+        }
+      ]);
+      Cart.addItems(cartItems, "Basic option added to cart");
+    }
+
+    UI.hideMembershipPopup();
+  }
+
+  function handleAddToCartButtonClick() {
+    if (state.isRequestInProgress) return;
+
+    const outletSelector = document.querySelector(".individual-product-selector.outlet");
+
+    // Handle variant options
+    const variantSelector = document.querySelector(".individual-product-selector.variant-input");
+    if (variantSelector) {
+      for (let i = 0; i < DOM.radioButtons.length; i++) {
+        const radio = DOM.radioButtons[i];
+        if (radio.checked) {
+          const cartItems = addDumbbellsIfChecked([
+            {
+              id: radio.dataset.productId,
+              quantity: 1
+            }
+          ]);
+          Cart.addItems(cartItems);
+          return;
+        }
+      }
+    }
+
+    // Check if product is already in cart
+    const alreadyInCartSelector = document.querySelector(".individual-product-selector.sub-in-cart");
+    if (alreadyInCartSelector) {
+      const items = addDumbbellsIfChecked([{
+        id: CONFIG.VARIANT_ID,
+        quantity: 1
+      }]);
+      Cart.addItems(items, "Product added to cart");
+      return;
+    }
+
+    // Handle single product case
+    if (DOM.singleProductSelector && !outletSelector) { //&& (!DOM.radioButtons || DOM.radioButtons.length === 0)
+      const productId = DOM.singleProductSelector.getAttribute('data-product-id');
+        // Handle simple product case
+      if (DOM.singleProductSelector.classList.contains('no-options')) {
+        const cartItems = addDumbbellsIfChecked([
+            {
+              id: CONFIG.VARIANT_ID,
+              quantity: 1
+            }
+          ]);
+          Cart.addItems(cartItems);
+          return;
+        }
+      const cartItems = addDumbbellsIfChecked([
+        {
+          id: productId,
+          quantity: 1,
+          properties: createBundleProperties(productId, CONFIG.VARIANT_ID)
+        },
+        {
+          id: CONFIG.VARIANT_ID,
+          quantity: 1
+        }
+      ]);
+
+      Cart.addItems(cartItems);
+      return;
+    }
+
+    // Check which option is selected
+    let selectedOption = null;
+    let showPopup = false;
+
+    for (let i = 0; i < DOM.radioButtons.length; i++) {
+      const radio = DOM.radioButtons[i];
+      if (radio.checked) {
+        if (DOM.radioButtons.length === 1) { 
+          // Only one option exists
+          const items = addDumbbellsIfChecked([
+            {
+              id: radio.dataset.productId,
+              quantity: 1
+            },
+            {
+              id: CONFIG.VARIANT_ID,
+              quantity: 1,
+              properties: { '_bundle': generateUniqueKey() }
+            }
+          ]);
+          Cart.addItems(items);
+          return;
+        } 
+        else if (i === 0) {
+          if (outletSelector) {
+            const cartItems = addDumbbellsIfChecked([{
+              id: CONFIG.VARIANT_ID,
+              quantity: 1
+            }]);
+            Cart.addItems(cartItems);
+            showPopup = false;
+            break;
+          }
+          // First option - show membership popup only if not outlet item
+          showPopup = true;
+          break;
+        }
+        else if (i === 1 || i === 2) {
+          if (outletSelector) {
+          const productId = DOM.singleProductSelector.getAttribute('data-product-id');
+            const cartItems = addDumbbellsIfChecked([
+            {
+              id: radio.dataset.productId,
+              quantity: 1,
+              properties: createBundleProperties(radio.dataset.productId, CONFIG.VARIANT_ID)
+            },
+            {
+              id: CONFIG.VARIANT_ID,
+              quantity: 1
+            }
+          ]);
+          Cart.addItems(cartItems);
+          return;
+          }
+          // Options 2 or 3 - create product object
+          selectedOption = {
+            id: radio.dataset.productId,
+            quantity: 1,
+            properties: createBundleProperties(radio.dataset.productId, CONFIG.VARIANT_ID)
+          };
+          break;
+        }
+      }
+    }
+
+    if (showPopup) {
+      UI.showMembershipPopup();
+    }
+    else if (selectedOption) {
+      // Create bundle items
+      const bundleCartItems = addDumbbellsIfChecked([
+        ...(selectedOption.id != CONFIG.ONE_YEAR_VARIANT ? [{
+          id: CONFIG.BUNDLE_PRODUCT_2,
+          quantity: 1,
+          properties: createBundleProperties(selectedOption.id, CONFIG.VARIANT_ID)
+        }] : []),
+        selectedOption,
+        {
+          id: CONFIG.VARIANT_ID,
+          quantity: 1
+        }
+      ]);
+
+      Cart.addItems(bundleCartItems);
+    }
+  }
+
+  async function handleAddProductOnlyClick() {
+    if (state.isRequestInProgress) return;
+
+    const noEquipment = DOM.addProductOnly.getAttribute('data-no-equipment') === 'true';
+
+    // Find selected radio option
+    let selectedIndex = -1;
+    let selectedOption = null;
+
+    DOM.radioButtons.forEach((radio, index) => {
+      if (radio.checked) {
+        selectedOption = radio.dataset.productId;
+        selectedIndex = index;
+      }
+    });
+
+    // Start loading
+    state.isRequestInProgress = true;
+    UI.showLoadingOverlay();
+    UI.setAllButtonsLoading(true);
+
+    try {
+      const cart = await Cart.getCart();
+
+      // Find subscriptions in cart
+      const monthlySubInCart = cart.items.find(item =>
+        normalizeId(item.variant_id) === CONFIG.MONTHLY_SUBSCRIPTION_ID
+      );
+
+      const yearlySubInCart = cart.items.find(item =>
+        normalizeId(item.variant_id) === CONFIG.ONE_YEAR_VARIANT
+      );
+
+      const twoYearSubInCart = cart.items.find(item =>
+        normalizeId(item.variant_id) === CONFIG.TWO_YEAR_VARIANT
+      );
+
+      const updates = {};
+
+      const variantSelector = document.querySelector(".individual-product-selector.variant-input");
+      if (variantSelector) {
+        for (let i = 0; i < DOM.radioButtons.length; i++) {
+          const radio = DOM.radioButtons[i];
+          if (radio.checked) {
+            const cartItems = addDumbbellsIfChecked([
+              {
+                id: radio.dataset.productId,
+                quantity: 1
+              }
+            ]);
+            await Cart.addItems(cartItems);
+            return;
+          }
+        }
+      }
+      else if (noEquipment) {
+        // Find all subscriptions to remove
+        if (monthlySubInCart) {
+          updates[monthlySubInCart.key] = 0;
+        }
+
+        if (yearlySubInCart) {
+          updates[yearlySubInCart.key] = 0;
+          // Also remove bundle items
+          findBundleItems(cart, CONFIG.ONE_YEAR_VARIANT).forEach(item => {
+            updates[item.key] = 0;
+          });
+        }
+
+        if (twoYearSubInCart) {
+          updates[twoYearSubInCart.key] = 0;
+          // Also remove bundle items
+          findBundleItems(cart, CONFIG.TWO_YEAR_VARIANT).forEach(item => {
+            updates[item.key] = 0;
+          });
+        }
+
+        // If we have updates, process them
+        if (Object.keys(updates).length > 0) {
+          // Update cart and get the updated cart data
+          const updatedCart = await Cart.updateItems(updates);
+
+          // Add appropriate subscription based on selection, passing the updated cart data
+          if (selectedIndex === 0) {
+            // Monthly
+            const monthlyItem = {
+              id: CONFIG.MONTHLY_SUBSCRIPTION_ID,
+              quantity: 1,
+              properties: createBundleProperties(CONFIG.MONTHLY_SUBSCRIPTION_ID, CONFIG.VARIANT_ID)
+            };
+
+            const items = addDumbbellsIfChecked([monthlyItem, { id: CONFIG.VARIANT_ID, quantity: 1 }]);
+            await Cart.addItems(
+              items,
+              "Switched to monthly subscription",
+              updatedCart
+            );
+          } else if (selectedIndex === 1) {
+            // One year
+            await Cart.addItems(
+              Subscription.getOneYearItems(),
+              "Switched to one-year subscription",
+              updatedCart
+            );
+          } else if (selectedIndex === 2) {
+            // Two year
+            await Cart.addItems(
+              Subscription.getTwoYearItems(),
+              "Switched to two-year subscription",
+              updatedCart
+            );
+          }
+        } else {
+          // No subscriptions to remove, just add the selected one
+          if (selectedIndex === 0) {
+            // Monthly
+            const monthlyItem = {
+              id: CONFIG.MONTHLY_SUBSCRIPTION_ID,
+              quantity: 1,
+              properties: createBundleProperties(CONFIG.MONTHLY_SUBSCRIPTION_ID, CONFIG.VARIANT_ID)
+            };
+
+            const items = addDumbbellsIfChecked([monthlyItem]);
+            await Cart.addItems(items, "Added monthly subscription");
+          } else if (selectedIndex === 1) {
+            // One year (exclude variant)
+            await Cart.addItems(
+              Subscription.getOneYearItems().filter(item =>
+                normalizeId(item.id) !== CONFIG.VARIANT_ID
+              ),
+              "Added one-year subscription"
+            );
+          } else if (selectedIndex === 2) {
+            // Two year (exclude variant)
+            await Cart.addItems(
+              Subscription.getTwoYearItems().filter(item =>
+                normalizeId(item.id) !== CONFIG.VARIANT_ID
+              ),
+              "Added two-year subscription"
+            );
+          }
+        }
+      } else {
+        // Handle subscription changes
+        const outletSelector = document.querySelector(".individual-product-selector.outlet");
+        if (monthlySubInCart && (selectedIndex === 1 || selectedIndex === 2) && outletSelector == null && variantSelector == null) {
+          // Upgrade from monthly to longer subscription
+          updates[monthlySubInCart.key] = 0;
+          const updatedCart = await Cart.updateItems(updates);
+
+          if (selectedIndex === 1) {
+            await Cart.addItems(Subscription.getOneYearItems(), "Upgraded to one-year subscription", updatedCart);
+          } else if (selectedIndex === 2) {
+            await Cart.addItems(Subscription.getTwoYearItems(), "Upgraded to two-year subscription", updatedCart);
+          }
+        } else if (yearlySubInCart) {
+          if (selectedIndex === 0 && !DOM.singleProductSelector && outletSelector == null && variantSelector == null) {
+            // Downgrade to monthly
+            updates[yearlySubInCart.key] = 0;
+            findBundleItems(cart, CONFIG.ONE_YEAR_VARIANT).forEach(item => {
+              updates[item.key] = 0;
+            });
+
+            const updatedCart = await Cart.updateItems(updates);
+
+            const monthlyItem = {
+              id: CONFIG.MONTHLY_SUBSCRIPTION_ID,
+              quantity: 1,
+              properties: createBundleProperties(CONFIG.MONTHLY_SUBSCRIPTION_ID, CONFIG.VARIANT_ID)
+            };
+
+            const items = addDumbbellsIfChecked([monthlyItem, { id: CONFIG.VARIANT_ID, quantity: 1 }]);
+            await Cart.addItems(
+              items,
+              "Downgraded to monthly subscription",
+              updatedCart
+            );
+          } else if (selectedIndex === 2 && outletSelector == null && variantSelector == null) {
+            // Upgrade to two-year
+            updates[yearlySubInCart.key] = 0;
+            findBundleItems(cart, CONFIG.ONE_YEAR_VARIANT).forEach(item => {
+              updates[item.key] = 0;
+            });
+
+            const updatedCart = await Cart.updateItems(updates);
+            await Cart.addItems(Subscription.getTwoYearItems(), "Upgraded to two-year subscription", updatedCart);
+          } else {
+            // Just add product
+            const items = addDumbbellsIfChecked([{ id: CONFIG.VARIANT_ID, quantity: 1 }]);
+            await Cart.addItems(items, "Product added to cart");
+          }
+        } else if (twoYearSubInCart) {
+          if (selectedIndex === 0 && !DOM.singleProductSelector && outletSelector == null && variantSelector == null) {
+            // Downgrade to monthly
+            updates[twoYearSubInCart.key] = 0;
+            findBundleItems(cart, CONFIG.TWO_YEAR_VARIANT).forEach(item => {
+              updates[item.key] = 0;
+            });
+
+            const updatedCart = await Cart.updateItems(updates);
+
+            const monthlyItem = {
+              id: CONFIG.MONTHLY_SUBSCRIPTION_ID,
+              quantity: 1,
+              properties: createBundleProperties(CONFIG.MONTHLY_SUBSCRIPTION_ID, CONFIG.VARIANT_ID)
+            };
+
+            const items = addDumbbellsIfChecked([monthlyItem, { id: CONFIG.VARIANT_ID, quantity: 1 }]);
+            await Cart.addItems(
+              items,
+              "Downgraded to monthly subscription",
+              updatedCart
+            );
+          } else if (selectedIndex === 1 && outletSelector == null && variantSelector == null) {
+            // Downgrade to one-year
+            updates[twoYearSubInCart.key] = 0;
+            findBundleItems(cart, CONFIG.TWO_YEAR_VARIANT).forEach(item => {
+              updates[item.key] = 0;
+            });
+
+            const updatedCart = await Cart.updateItems(updates);
+            await Cart.addItems(Subscription.getOneYearItems(), "Downgraded to one-year subscription", updatedCart);
+          } else {
+            // Just add product
+            const items = addDumbbellsIfChecked([{ id: CONFIG.VARIANT_ID, quantity: 1 }]);
+            await Cart.addItems(items, "Product added to cart");
+          }
+        } else {
+          // No subscription in cart, just add product
+          const items = addDumbbellsIfChecked([{ id: CONFIG.VARIANT_ID, quantity: 1 }]);
+          await Cart.addItems(items, "Product added to cart");
+        }
+      }
+    } catch (error) {
+      console.error("Error handling add product only:", error);
+      UI.showToast("Error processing your request", 'error');
+    } finally {
+      state.isRequestInProgress = false;
+      UI.hideLoadingOverlay();
+      UI.setAllButtonsLoading(false);
+    }
+  }
+
+  function handleProductSelectorClick(event) {
+    const selector = event.target.closest('.individual-product-selector');
+    if (!selector) return;
+
+    const index = Array.from(DOM.productSelectors).indexOf(selector);
+    if (DOM.radioButtons && DOM.radioButtons[index]) {
+      DOM.radioButtons[index].checked = true;
+
+      // Update app state
+      if (DOM.radioButtons[index].dataset.productId) {
+        state.selectedProductId = DOM.radioButtons[index].dataset.productId;
+        UI.updateProductSelection(DOM.radioButtons[index].dataset.productId);
+      }
+    }
+  }
+
+  async function handleUpgradePlanButtonClick() {
+    if (state.isRequestInProgress) return;
+
+    state.isRequestInProgress = true;
+    UI.showLoadingOverlay();
+    UI.setAllButtonsLoading(true);
+
+    try {
+      const cart = await Cart.getCart();
+
+      // Find monthly subscription
+      const item = cart.items.find(item => normalizeId(item.variant_id) === CONFIG.MONTHLY_SUBSCRIPTION_ID);
+      if (!item) {
+        UI.showToast("Monthly subscription not found in cart", 'error');
+        return;
+      }
+
+      // Remove monthly subscription
+      const updates = {};
+      updates[item.key] = 0;
+      const updatedCart = await Cart.updateItems(updates);
+
+      // Add one-year subscription
+      let foundSelected = false;
+
+      DOM.radioButtons.forEach((radio, index) => {
+        if (radio.checked && (index === 1 || index === 2)) {
+          foundSelected = true;
+        }
+      });
+
+      if (foundSelected || DOM.singleProductSelector) {
+        await Cart.addItems(Subscription.getOneYearItems(), "Upgraded to one-year subscription", updatedCart);
+      }
+    } catch (error) {
+      console.error("Error upgrading plan:", error);
+      UI.showToast("Error updating subscription", 'error');
+    } finally {
+      state.isRequestInProgress = false;
+      UI.hideLoadingOverlay();
+      UI.setAllButtonsLoading(false);
+    }
+  }
+
+  // Initialize the application and bind events
+  function initApp() {
+    // Bind event listeners for buttons
+    if (DOM.oneYearButton) {
+      DOM.oneYearButton.addEventListener("click", debounce(handleOneYearButtonClick, 300));
+    }
+
+    if (DOM.twoYearButton) {
+      DOM.twoYearButton.addEventListener("click", debounce(handleTwoYearButtonClick, 300));
+    }
+
+    if (DOM.addTrialButton) {
+      DOM.addTrialButton.addEventListener("click", debounce(handleTrialButtonClick, 300));
+    }
+
+    if (DOM.addToCartButton) {
+      DOM.addToCartButton.addEventListener("click", debounce(handleAddToCartButtonClick,300));
+    }
+
+    if (DOM.addProductOnly) {
+      DOM.addProductOnly.addEventListener("click", debounce(handleAddProductOnlyClick,300));
+    }
+
+    if (DOM.cancelButton) {
+      DOM.cancelButton.addEventListener("click", handleCancelButtonClick);
+    }
+
+    if (DOM.upgradePlanButton) {
+      DOM.upgradePlanButton.addEventListener("click", debounce(handleUpgradePlanButtonClick,300));
+    }
+
+    // Use event delegation for product selectors if possible
+    if (DOM.productSelectors && DOM.productSelectors.length) {
+      const container = DOM.productSelectors[0].parentElement;
+      if (container) {
+        container.addEventListener("click", handleProductSelectorClick);
+      } else {
+        // Fallback to individual listeners
+        DOM.productSelectors.forEach(selector => {
+          selector.addEventListener("click", handleProductSelectorClick);
+        });
+      }
+    }
+
+    // Handle dumbbells selectors click with mutual exclusivity
+    if (DOM.dumbbellsSelectors && DOM.dumbbellsSelectors.length > 0) {
+      DOM.dumbbellsSelectors.forEach((selector, index) => {
+        selector.addEventListener("click", function(event) {
+          const checkbox = DOM.dumbbellsCheckboxes[index];
+          if (!checkbox) return;
+
+          // If clicking directly on the checkbox, let it handle its own toggle
+          // Then we just need to uncheck others
+          if (event.target === checkbox) {
+            setTimeout(() => {
+              if (checkbox.checked) {
+                DOM.dumbbellsCheckboxes.forEach((otherCheckbox, otherIndex) => {
+                  if (otherIndex !== index) {
+                    otherCheckbox.checked = false;
+                  }
+                });
+              }
+            }, 0);
+          } else {
+            // Clicking anywhere else on the div - toggle manually
+            checkbox.checked = !checkbox.checked;
+
+            // Uncheck other dumbbells options (mutual exclusivity)
+            if (checkbox.checked) {
+              DOM.dumbbellsCheckboxes.forEach((otherCheckbox, otherIndex) => {
+                if (otherIndex !== index) {
+                  otherCheckbox.checked = false;
+                }
+              });
+            }
+          }
+        });
+      });
+    }
+  }
+
+  // Start the app
+  initApp();
+ });
+  </script>
+
+  {% schema %}
+  {
+    "name": "Membership Popup",
+    "class": "index-section index-section--flush membership_popup main-cart-pdp-2025",
+    "settings": [
+      {
+        "type": "header",
+        "content": "The last freebie will only appear on 2-year access"
+      },
+      {
+        "type": "text",
+        "id": "monthly_price",
+        "label": "Monthly Price"
+      },
+      {
+        "type": "text",
+        "id": "one_year_price",
+        "label": "Total Price for 1-year Sub"
+      },
+      {
+        "type": "text",
+        "id": "two_year_price",
+        "label": "Total Price for 2-year Sub"
+      }
+    ],
+    "max_blocks": 3,
+    "blocks": [
+       {
+         "name": "Freebie",
+         "type": "freebie",
+         "settings": [
+           {
+             "type": "product",
+             "id": "product_freebie",
+             "label": "Choose free product"
+           },
+           {
+          "type": "text",
+          "id": "alt_title",
+          "label": "Optional Alternate Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "alt_image",
+          "label": "Optional Alternate Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_price",
+          "label": "Optional Alternate Price/Worth"
+        }
+         ]
+       }
+    ],
+    "presets": [
+      {
+        "name": "Membership Popup"
+      }
+    ]
+  }
+  {% endschema %}
