@@ -36,6 +36,20 @@ The repository currently contains the following SOP documents. Two documents use
 | [Manual Installation Guide](MANUAL-UK-DYNAMIC-BIKE-TEMPLATE.md) | Manual installation, exact Shopify file paths, product assignment and test procedure for `product.dynamic-bike`. |
 | [Dynamic Bike Template Reference](REFERENCE-UK-DYNAMIC-BIKE-TEMPLATE.md) | Quick reference for the additive architecture, UK metafields, existing Premier membership products, data behavior and validation requirements. |
 
+## Membership and Dynamic Template Context Files
+
+| File | Description |
+|---|---|
+| [US Membership Subscription Billing Context](docs/reference/US-MEMBERSHIP-SUBSCRIPTION-BILLING-CONTEXT.pdf) | PDF reference explaining the verified US membership PDP flow, Product references, Liquid snippets, cart-state behavior, subscription selling-plan boundary, and recurring-billing verification requirements. |
+| [US Membership Subscription Billing Source](docs/reference/US-MEMBERSHIP-SUBSCRIPTION-BILLING-CONTEXT.typ) | Typst source for the US membership and subscription context PDF. |
+| [UK Dynamic Template Chat Context](docs/reference/ECHELON-UK-DYNAMIC-TEMPLATE-CHAT-CONTEXT.md) | Master context file for the UK implementation chat, including US evidence, UK target architecture, Liquid behavior, metafields, product references, template schema, and acceptance tests. |
+| [US-UK Membership Architecture Comparison](docs/reference/US-UK-MEMBERSHIP-ARCHITECTURE-COMPARISON.md) | Comparison separating verified US behavior from the recommended UK profile-based architecture. |
+| [US Membership Replication Guide](docs/reference/US-MEMBERSHIP-REPLICATION-GUIDE.md) | Detailed replication guide for the US membership Product references and PDP snippets. |
+| [UK PDF Context Findings](docs/reference/UK-PDF-CONTEXT-FINDINGS.md) | Extracted findings from the supplied UK dynamic-template context document. |
+| [Original UK Dynamic Template Context](docs/reference/source/Correct_Solution_One_100_Dynamic_Product_Template.pdf) | Source PDF supplied as architectural context for the UK dynamic template. |
+
+The recommended reading order is to start with the US PDF for the billing boundary, then read the master UK chat context, then use the US-UK comparison and UK PDF findings while implementing. The Typst source is included so the US PDF can be maintained and regenerated. These files are reference documentation only; they do not modify a Shopify store by themselves.
+
 ## ThermaChill companion files
 
 | File | Description |
@@ -50,6 +64,7 @@ The repository currently contains the following SOP documents. Two documents use
 
 The SOP documents may refer to additional theme files, snippets or assets from the relevant Shopify theme. Those implementation files are intentionally not duplicated here unless explicitly listed as reference code. Each SOP should identify the target theme, file path and deployment scope before a change is made.
 
+
 ## How to use this repository
 
 Start with the SOP that matches the requested change. Read its scope, prerequisites, affected files, validation steps and rollback procedure before editing code or configuration. Use the linked supporting manual when the SOP involves a product template installation or a repeatable operational workflow.
@@ -60,7 +75,7 @@ For a live-theme change, create or pull a local backup, work on a dedicated bran
 
 The existing filenames are preserved to avoid breaking historical links. The duplicate `SOP-009` prefix should be normalized in a future repository-maintenance change, preferably by assigning a new sequential identifier to one document and updating all inbound links together.
 
-When adding a new SOP, include a unique identifier, a clear implementation scope, prerequisites, affected files, step-by-step procedure, validation criteria, troubleshooting guidance and rollback instructions. Add the document to the Available SOPs table and place supporting manuals or companion assets in the appropriate reference section.
+When adding a new SOP, include a unique identifier, a clear implementation scope, prerequisites, affected files, step-by-step procedure, validation criteria, troubleshooting guidance and rollback instructions. Add the document to the Available SOPs table and place supporting manuals or companion assets in the appropriate reference section. Context files must distinguish verified live-store behavior from proposed architecture, identify the exact source files and metafields, and record any unverified JavaScript or subscription-app behavior before implementation.
 
 ## Technology covered
 
