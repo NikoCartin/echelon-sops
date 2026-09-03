@@ -29,6 +29,7 @@ The repository currently contains the following SOP documents. Two documents use
 | SOP-009A | [ThermaChill Main Unit PDP and Mix-and-Match Garments](SOP-009-thermachill-main-unit-mix-match.md) | Maintain the ThermaChill main-unit PDP, garment selection cards, variant and inventory behavior, configuration subtotal and cart flow. |
 | SOP-009B | [UK Dynamic Bike Product Template](SOP-009-uk-dynamic-bike-product-template.md) | Maintain the additive `product.dynamic-bike` template, including fixed bike presentation, dynamic PDP data, UK membership cards, specifications, deployment, testing and rollback. |
 | SOP-010 | [UK Dynamic FitQuest Product Template](SOP-010-uk-dynamic-fitquest-product-template.md) | Maintain the additive `product.dynamic-fitquest` template, including dynamic FitQuest PDP data, elliptical-only membership cards, one native purchase action, combined cart behavior, validation, deployment and rollback. |
+| SOP-011 | [UK Two-Part Equipment and Screen Cart Flow](SOP-011-uk-two-part-screen-line-cart-flow.md) | Maintain the dedicated Strength+ and Row-7s cart flow so each equipment SKU adds its corresponding screen SKU as a separate line, with Online Store availability, validation and rollback guidance. |
 
 ## UK Dynamic Bike Template Reference Files
 
