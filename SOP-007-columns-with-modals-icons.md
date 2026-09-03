@@ -1,4 +1,6 @@
 # SOP-007: Adding or Updating Optional Icons in the Columns with Modals Section
+**Author:** Nicolas Cartin Reyes<br>
+**Audience:** Internal Echelon developers, Shopify administrators and technical operators<br>
 
 **Store:** echelonfit.com (Shopify)
 **Applies to:** Any page using the `image-icon-text-modal.liquid` section (e.g., `/pages/membership`, product pages with the 3-column feature section)

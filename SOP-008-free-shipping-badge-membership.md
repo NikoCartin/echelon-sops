@@ -1,4 +1,6 @@
 # SOP-008: Managing the "Free Shipping" Badge on Membership Product Cards
+**Author:** Nicolas Cartin Reyes<br>
+**Audience:** Internal Echelon developers, Shopify administrators and technical operators<br>
 
 **Store:** echelonfit.com (Shopify)  
 **Applies to:** Individual product pages with the membership selector (e.g., Stride 6S and any product using `snippets/product-radio-option.liquid`)  

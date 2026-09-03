@@ -1,4 +1,6 @@
 # SOP-002: Bazaarvoice Coding Setup and Troubleshooting
+**Author:** Nicolas Cartin Reyes<br>
+**Audience:** Internal Echelon developers, Shopify administrators and technical operators<br>
 
 **Store:** Echelon Fit Shopify Stores (US, UK, CA)  
 **Category:** Theme Development & Integrations  

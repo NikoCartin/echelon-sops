@@ -1,7 +1,8 @@
 # Standard Operating Procedure: UK Two-Part Equipment and Screen Cart Flow
 
 **Document owner:** UK Ecommerce Development  
-**Author:** Manus AI  
+**Author:** Nicolas Cartin Reyes<br>
+**Audience:** Internal Echelon developers, Shopify administrators and technical operators<br>
 **Version:** 1.0  
 **Status:** Final and validated for the UK live theme  
 **Scope:** Strength+ and Row-7s two-part SKU products  
@@ -192,7 +193,7 @@ A representative deployment pattern is:
 shopify theme pull \
   --store echelonfit-uk.myshopify.com \
   --theme 193430749559 \
-  --path /home/ubuntu/two-part-sku-live-backup \
+  --path ./backups/two-part-sku-live-backup \
   --nodelete \
   --only templates/product.strength-home.liquid \
   --only templates/product.cargo-row7s.liquid
@@ -202,7 +203,7 @@ python3 validate_two_part_sku_templates.py
 shopify theme push \
   --store echelonfit-uk.myshopify.com \
   --theme 193430749559 \
-  --path /home/ubuntu/two-part-sku-live-patch \
+  --path ./two-part-sku-live-patch \
   --allow-live \
   --nodelete \
   --only templates/product.strength-home.liquid \
@@ -263,7 +264,7 @@ The following conditions are prohibited:
 
 The live correction was verified on 3 September 2026. The Strength+ browser test produced separate equipment and screen lines after the Strength screen was published to Online Store. The Row-7s browser test produced separate equipment and screen lines using the existing published screen product. Both tests retained the selected UK Premier membership and the expected helper-managed delivery behavior.
 
-The connected browser cart was cleaned after testing and left with only its pre-existing monthly membership line. No checkout or order was submitted. The live correction did not change FitQuest, dynamic-bike, shared layouts, global assets, settings, unrelated templates, product prices or inventory.
+The approved test cart was cleaned after testing and left with only its pre-existing monthly membership line. No checkout or order was submitted. The live correction did not change FitQuest, dynamic-bike, shared layouts, global assets, settings, unrelated templates, product prices or inventory.
 
 ## References
 

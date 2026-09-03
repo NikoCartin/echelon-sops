@@ -1,4 +1,6 @@
 # SOP-004: SSL Setup and Validation via PuTTY
+**Author:** Nicolas Cartin Reyes<br>
+**Audience:** Internal Echelon developers, Shopify administrators and technical operators<br>
 
 **Environment:** Production (`api.flexit.fit`)  
 **Category:** DevOps / Platform Team  

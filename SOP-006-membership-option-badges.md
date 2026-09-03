@@ -1,4 +1,6 @@
 # SOP-006: Managing Membership Option Badges on Echelon Product Pages
+**Author:** Nicolas Cartin Reyes<br>
+**Audience:** Internal Echelon developers, Shopify administrators and technical operators<br>
 
 **Store:** echelonfit.com (Shopify)
 **Applies to:** Individual product pages using the membership selector (e.g., Stride 6S, and any product with 30-Days / 1-Year / 2-Year membership options)

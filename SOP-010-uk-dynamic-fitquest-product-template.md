@@ -1,7 +1,8 @@
 # SOP-010: UK Dynamic FitQuest Product Template
 
 **Document owner:** UK Ecommerce Development  
-**Author:** Manus AI  
+**Author:** Nicolas Cartin Reyes<br>
+**Audience:** Internal Echelon developers, Shopify administrators and technical operators<br>
 **Version:** 1.0  
 **Status:** Final and validated against the UK live storefront  
 **Template:** `product.dynamic-fitquest`  
@@ -226,13 +227,13 @@ Do not edit the shared specification parser for a single product. The product de
 
 Before editing, confirm the store domain, current public theme ID, product template, affected files, rollback source and validation plan. The live theme ID must be verified from Shopify Admin or from the public storefront's `data-theme-instance-id`; do not rely on an old draft-theme ID.
 
-The previously audited theme ID `193521222007` was unpublished and did not contain the live FitQuest files. It must not be used as the target for this template.
+Confirm the target theme in Shopify Admin before pulling. Never reuse a theme ID from a previous draft or retired theme.
 
 Shopify's theme structure separates templates, sections, snippets and configuration files [1]. The deployment should use that separation and upload only the exact changed FitQuest file.
 
 ### 9.2 Read-only pull
 
-Use a fresh local audit directory and pull only the wrapper and its relevant FitQuest sections:
+Use a clean local working directory and pull only the wrapper and its relevant FitQuest sections:
 
 ```bash
 shopify theme pull \
@@ -331,7 +332,7 @@ Rollback must restore the previous validated version of the exact FitQuest file.
 
 1. Record the public symptom and the current live theme ID.
 2. Pull or retrieve the last validated `sections/fitquest-dynamic-offers.liquid` source from version control or the approved backup.
-3. Restore only that file in the local audit directory.
+3. Restore only that file in the local working directory.
 4. Re-run the Liquid, schema, single-action and eligibility checks.
 5. Push only `sections/fitquest-dynamic-offers.liquid` to the same confirmed live theme with `--nodelete --allow-live --only`.
 6. Hard-refresh an eligible elliptical, a non-elliptical FitQuest product and the non-FitQuest control PDP.

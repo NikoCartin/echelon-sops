@@ -1,4 +1,6 @@
 # SOP-003: Ship-X Shipping Policy & Setup
+**Author:** Nicolas Cartin Reyes<br>
+**Audience:** Internal Echelon developers, Shopify administrators and technical operators<br>
 
 **Store:** Echelon Fit Shopify Stores  
 **Category:** E-commerce Operations & Shipping  

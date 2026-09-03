@@ -3,7 +3,8 @@
 **Implementation record:** ThermaChill Main Unit PDP, garment catalog setup, pricing, inventory, variants, and live deployment  
 **Store:** Echelon Fit US (`echelon-store.myshopify.com`)  
 **Status:** Deployed to the live theme  
-**Author:** Manus AI  
+**Author:** Nicolas Cartin Reyes<br>
+**Audience:** Internal Echelon developers, Shopify administrators and technical operators<br>
 **Last updated:** August 21, 2026
 
 ## Executive summary
@@ -155,7 +156,7 @@ The feature was validated in the unpublished theme **ThermaChill Size Selector Q
 
 Before live publication, the previous live theme was pulled to a local backup directory:
 
-`/home/ubuntu/echelon-live-theme.pre-publish-thermachill`
+`./backups/echelon-live-theme-pre-publish-thermachill`
 
 The approved files were then published to live theme `139674484935`, named `echelon-US/live-published-theme`. The final CSS refinement for consistent image framing, the larger circular selector, and the compact ADD GARMENT label was published to the same live theme on August 20, 2026. The dynamic configuration subtotal snippet and styles were published to the same live theme on August 21, 2026. The fixed three-column layout and Sold Out card state were published to the same live theme on August 21, 2026. The responsive Main Unit title and price header for tablet and mobile was published to the same live theme on August 21, 2026 after a fresh live-theme backup. The Main Unit product was assigned:
 

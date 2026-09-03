@@ -1,7 +1,8 @@
 # Standard Operating Procedure: UK Dynamic Bike Product Template
 
 **Document owner:** UK Ecommerce Development
-**Author:** Manus AI
+**Author:** Nicolas Cartin Reyes<br>
+**Audience:** Internal Echelon developers, Shopify administrators and technical operators<br>
 **Version:** 1.1
 **Status:** Final and validated for the UK live theme
 **Template:** `product.dynamic-bike`
@@ -309,12 +310,12 @@ Confirm that `Dev Mega Menu` appears as the live theme with ID `192726008183`.
 ### 9.2 Pull a backup or verification copy
 
 ```bash
-rm -rf /home/ubuntu/live-bike-backup
-mkdir -p /home/ubuntu/live-bike-backup
+rm -rf ./backups/live-bike-backup
+mkdir -p ./backups/live-bike-backup
 shopify theme pull \
   --store echelonfit-uk.myshopify.com \
   --theme 192726008183 \
-  --path /home/ubuntu/live-bike-backup \
+  --path ./backups/live-bike-backup \
   --nodelete
 ```
 
@@ -322,7 +323,7 @@ Do not overwrite the local source tree with the pull unless intentionally refres
 
 ### 9.3 Validate before push
 
-From `/home/ubuntu/uk-theme-work`, run:
+From `./uk-theme-work`, run:
 
 ```bash
 python3 validate_neutral_template.py
@@ -349,7 +350,7 @@ For a membership-card or Featured Collection fix, push only the affected files:
 shopify theme push \
   --store echelonfit-uk.myshopify.com \
   --theme 192726008183 \
-  --path /home/ubuntu/uk-theme-work \
+  --path ./uk-theme-work \
   --allow-live \
   --nodelete \
   --only sections/dynamic-product-description.liquid \
@@ -362,32 +363,32 @@ For a fixed community or experience change, replace the `--only` paths with the 
 ### 9.5 Verify the deployed source
 
 ```bash
-rm -rf /home/ubuntu/live-bike-verify
-mkdir -p /home/ubuntu/live-bike-verify
+rm -rf ./backups/live-bike-verify
+mkdir -p ./backups/live-bike-verify
 shopify theme pull \
   --store echelonfit-uk.myshopify.com \
   --theme 192726008183 \
-  --path /home/ubuntu/live-bike-verify \
+  --path ./backups/live-bike-verify \
   --nodelete \
   --only sections/dynamic-product-description.liquid \
   --only snippets/dynamic-product-description-v3.liquid \
   --only snippets/dynamic-bike-featured-collection.liquid
 
 cmp -s sections/dynamic-product-description.liquid \
-  /home/ubuntu/live-bike-verify/sections/dynamic-product-description.liquid
+  ./backups/live-bike-verify/sections/dynamic-product-description.liquid
 cmp -s snippets/dynamic-product-description-v3.liquid \
-  /home/ubuntu/live-bike-verify/snippets/dynamic-product-description-v3.liquid
+  ./backups/live-bike-verify/snippets/dynamic-product-description-v3.liquid
 cmp -s snippets/dynamic-bike-featured-collection.liquid \
-  /home/ubuntu/live-bike-verify/snippets/dynamic-bike-featured-collection.liquid
+  ./backups/live-bike-verify/snippets/dynamic-bike-featured-collection.liquid
 ```
 
 A successful `cmp` produces no output and exits with code zero. Record the checksum when a change is important:
 
 ```bash
 sha256sum \
-  /home/ubuntu/live-bike-verify/sections/dynamic-product-description.liquid \
-  /home/ubuntu/live-bike-verify/snippets/dynamic-product-description-v3.liquid \
-  /home/ubuntu/live-bike-verify/snippets/dynamic-bike-featured-collection.liquid
+  ./backups/live-bike-verify/sections/dynamic-product-description.liquid \
+  ./backups/live-bike-verify/snippets/dynamic-product-description-v3.liquid \
+  ./backups/live-bike-verify/snippets/dynamic-bike-featured-collection.liquid
 ```
 
 ## 10. Testing and acceptance checklist
@@ -453,15 +454,15 @@ Do not delete existing SKU templates as part of rollback. Do not replace `templa
 A safe rollback pattern is:
 
 ```bash
-cp /home/ubuntu/live-bike-backup/sections/<affected-file>.liquid \
-  /home/ubuntu/uk-theme-work/sections/<affected-file>.liquid
+cp ./backups/live-bike-backup/sections/<affected-file>.liquid \
+  ./uk-theme-work/sections/<affected-file>.liquid
 
-python3 /home/ubuntu/uk-theme-work/validate_neutral_template.py
+python3 ./uk-theme-work/validate_neutral_template.py
 
 shopify theme push \
   --store echelonfit-uk.myshopify.com \
   --theme 192726008183 \
-  --path /home/ubuntu/uk-theme-work \
+  --path ./uk-theme-work \
   --allow-live \
   --nodelete \
   --only sections/<affected-file>.liquid
@@ -486,7 +487,7 @@ liquid_balance:ok
 sku_neutrality:ok
 ```
 
-The live theme currently contains the additive bike template and the corrected membership and Featured Collection files. The latest fixes were pushed only to the three affected files:
+The current implementation baseline includes the additive bike template and the corrected membership and Featured Collection files. The baseline files are:
 
 ```text
 sections/dynamic-product-description.liquid

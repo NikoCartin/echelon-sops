@@ -52,6 +52,10 @@ The repository currently contains the following SOP documents. Two documents use
 
 The recommended reading order is to start with the US PDF for the billing boundary, then read the master UK chat context, then use the US-UK comparison and UK PDF findings while implementing. The Typst source is included so the US PDF can be maintained and regenerated. These files are reference documentation only; they do not modify a Shopify store by themselves.
 
+## Documentation standard
+
+All SOPs in this repository are internal operating documentation for Echelon developers, Shopify administrators and technical operators. The document author is **Nicolas Cartin Reyes**. SOPs must contain actionable procedures, prerequisites, affected files or configuration, validation criteria, troubleshooting guidance and rollback instructions. They must not contain agent identity, chat history, sandbox paths, temporary audit narration, private credentials or other notes that are useful only to the document-generation process.
+
 ## ThermaChill companion files
 
 | File | Description |

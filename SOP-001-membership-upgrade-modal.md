@@ -1,4 +1,6 @@
 # SOP-001: Editing the Membership Upgrade Modal
+**Author:** Nicolas Cartin Reyes<br>
+**Audience:** Internal Echelon developers, Shopify administrators and technical operators<br>
 
 **Store:** echelonfit.com (Echelon Fit Shopify Store)  
 **Template:** `main-cart-pdp-2025`  
