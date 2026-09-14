@@ -30,6 +30,8 @@ The repository currently contains the following SOP documents. Two documents use
 | SOP-009B | [UK Dynamic Bike Product Template](SOP-009-uk-dynamic-bike-product-template.md) | Maintain the additive `product.dynamic-bike` template, including fixed bike presentation, dynamic PDP data, UK membership cards, specifications, deployment, testing and rollback. |
 | SOP-010 | [UK Dynamic FitQuest Product Template](SOP-010-uk-dynamic-fitquest-product-template.md) | Maintain the additive `product.dynamic-fitquest` template, including dynamic FitQuest PDP data, elliptical-only membership cards, one native purchase action, combined cart behavior, validation, deployment and rollback. |
 | SOP-011 | [UK Two-Part Equipment and Screen Cart Flow](SOP-011-uk-two-part-screen-line-cart-flow.md) | Maintain the dedicated Strength+ and Row-7s cart flow so each equipment SKU adds its corresponding screen SKU as a separate line, with Online Store availability, validation and rollback guidance. |
+| SOP-012 | [Collection Page CTA Links](SOP-012-collection-page-cta-links.md) | Configure, validate and release collection-page hero CTAs, including stable product-grid anchors, Liquid implementation, QA, troubleshooting and rollback. |
+| SOP-013 | [Designed and Engineered in the USA PDP Badge](SOP-013-usa-designed-engineered-badge-pdp.md) | Maintain the reusable USA badge across PDP purchase render paths, including placement, accessibility, responsive QA, publication and rollback. |
 
 ## UK Dynamic Bike Template Reference Files
 
