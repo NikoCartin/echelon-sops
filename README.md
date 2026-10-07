@@ -33,6 +33,11 @@ The repository currently contains the following SOP documents. Two documents use
 | SOP-012 | [Collection Page CTA Links](SOP-012-collection-page-cta-links.md) | Configure, validate and release collection-page hero CTAs, including stable product-grid anchors, Liquid implementation, QA, troubleshooting and rollback. |
 | SOP-013 | [Designed and Engineered in the USA PDP Badge](SOP-013-usa-designed-engineered-badge-pdp.md) | Maintain the reusable USA badge across PDP purchase render paths, including placement, accessibility, responsive QA, publication and rollback. |
 | SOP-014 | [UK Product2024 Secondary Product Cart Mapping](SOP-014-uk-product2024-secondary-product-cart.md) | Configure a Product2024 product-reference metafield so an optional secondary physical product, such as a packaged-separately screen, is added as a separate cart line with the selected membership. |
+| SOP-015 | [ThermaChill Recliner Chair Gift](SOP-015-thermachill-chair-gift.md) | Maintain the Echelon US consumer-site promotion that adds one Recliner Chair to the ThermaChill cart and discounts only the marked gift line through a Shopify Product Discount Function. |
+
+## Recent consumer-site accomplishment
+
+Implemented and deployed the ThermaChill Recliner Chair gift flow for the Echelon US consumer storefront at [echelonfit.com](https://echelonfit.com/). The product page adds the chair as a marked cart line, while a fail-closed Shopify Product Discount Function discounts only one eligible gift line. The ThermaChill Main Unit and selected garments remain paid. The implementation includes product-reference configuration, duplicate-gift protection, controlled production validation and rollback guidance. See [SOP-015](SOP-015-thermachill-chair-gift.md).
 
 ## UK Dynamic Bike Template Reference Files
 
@@ -72,7 +77,6 @@ All SOPs in this repository are internal operating documentation for Echelon dev
 | [membership-popup.liquid](membership-popup.liquid) | Full Liquid, HTML and JavaScript source for the membership upgrade modal, including its cart behavior. |
 
 The SOP documents may refer to additional theme files, snippets or assets from the relevant Shopify theme. Those implementation files are intentionally not duplicated here unless explicitly listed as reference code. Each SOP should identify the target theme, file path and deployment scope before a change is made.
-
 
 ## How to use this repository
 
