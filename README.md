@@ -35,6 +35,7 @@ The repository currently contains the following SOP documents. Two documents use
 | SOP-014 | [UK Product2024 Secondary Product Cart Mapping](SOP-014-uk-product2024-secondary-product-cart.md) | Configure a Product2024 product-reference metafield so an optional secondary physical product, such as a packaged-separately screen, is added as a separate cart line with the selected membership. |
 | SOP-015 | [ThermaChill Recliner Chair Gift](SOP-015-thermachill-chair-gift.md) | Maintain the Echelon US consumer-site promotion that adds one Recliner Chair to the ThermaChill cart and discounts only the marked gift line through a Shopify Product Discount Function. |
 | SOP-016 | [SEO Audit and Controlled Shopify Theme Release](SOP-016-seo-audit-controlled-theme-release.md) ([PDF](SOP-016-seo-audit-controlled-theme-release.pdf)) | Audit technical SEO, test narrow theme changes in QA, deploy only approved files, verify the live pullback, and document rollback and post-deployment validation. |
+| SOP-017 | [UK Member Reward Zone Two-Part Cart Validation](SOP-017-uk-member-reward-zone-two-part-cart-validation.md) | Verify that authenticated member purchase paths add both equipment and companion screen SKUs, trace the responsible handler, and validate safely before deployment. |
 
 ## SEO Documentation
 
