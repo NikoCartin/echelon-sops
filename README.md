@@ -1,5 +1,10 @@
 # Echelon Fit - Shopify Development SOPs
 
+<p align="center">
+  <img src="assets/echelon-sops-banner.png" alt="Echelon Shopify Development SOPs" width="100%"/>
+</p>
+
+
 This repository contains Standard Operating Procedures, implementation references and supporting code for custom Shopify development on the Echelon Fit storefronts. The material covers storefront operations, Liquid architecture, product-page behavior, membership presentation, shipping, promotional modules, product configuration and deployment practices.
 
 The documents are intended for Echelon ecommerce developers, Shopify administrators and technical operators who maintain the company storefronts. Before changing a live theme, confirm the target store, theme ID, affected files and rollback path.
