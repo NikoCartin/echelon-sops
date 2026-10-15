@@ -41,6 +41,7 @@ The repository currently contains the following SOP documents. Two documents use
 | SOP-015 | [ThermaChill Recliner Chair Gift](SOP-015-thermachill-chair-gift.md) | Maintain the Echelon US consumer-site promotion that adds one Recliner Chair to the ThermaChill cart and discounts only the marked gift line through a Shopify Product Discount Function. |
 | SOP-016 | [SEO Audit and Controlled Shopify Theme Release](SOP-016-seo-audit-controlled-theme-release.md) ([PDF](SOP-016-seo-audit-controlled-theme-release.pdf)) | Audit technical SEO, test narrow theme changes in QA, deploy only approved files, verify the live pullback, and document rollback and post-deployment validation. |
 | SOP-017 | [UK Member Reward Zone Two-Part Cart Validation](SOP-017-uk-member-reward-zone-two-part-cart-validation.md) | Verify that authenticated member purchase paths add both equipment and companion screen SKUs, trace the responsible handler, and validate safely before deployment. |
+| SOP-018 | [Scheduled Sales-Channel Publication Flow](SOP-018-scheduled-sales-channel-publication-flow.md) | Design, validate and operate a scheduled Shopify Flow that removes inventory-state-tagged products from one approved sales channel without changing Online Store publication or product data. |
 
 ## SEO Documentation
 
@@ -75,7 +76,7 @@ The recommended reading order is to start with the US PDF for the billing bounda
 
 ## Documentation standard
 
-All SOPs in this repository are internal operating documentation for Echelon developers, Shopify administrators and technical operators. The document author is **Nicolas Cartin Reyes**. SOPs must contain actionable procedures, prerequisites, affected files or configuration, validation criteria, troubleshooting guidance and rollback instructions. They must not contain agent identity, chat history, sandbox paths, temporary audit narration, private credentials or other notes that are useful only to the document-generation process.
+All SOPs in this repository are internal operating documentation for Echelon developers, Shopify administrators and technical operators. The document author is **Nicolás Cartin Reyes**. SOPs must contain actionable procedures, prerequisites, affected files or configuration, validation criteria, troubleshooting guidance and rollback instructions. They must not contain agent identity, chat history, sandbox paths, temporary audit narration, private credentials or other notes that are useful only to the document-generation process.
 
 ## ThermaChill companion files
 
@@ -105,7 +106,7 @@ When adding a new SOP, include a unique identifier, a clear implementation scope
 
 ## Technology covered
 
-`Shopify` · `Liquid` · `JavaScript` · `HTML` · `CSS` · `Theme Customization` · `Metafields` · `Product and Variant Data` · `Inventory` · `Shipping` · `Membership Presentation` · `Ecommerce Operations`
+`Shopify` · `Shopify Flow` · `Liquid` · `JavaScript` · `HTML` · `CSS` · `Theme Customization` · `Metafields` · `Product and Variant Data` · `Inventory` · `Sales Channels` · `Shipping` · `Membership Presentation` · `Ecommerce Operations`
 
 ## References
 
