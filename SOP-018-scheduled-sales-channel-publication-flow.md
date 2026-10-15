@@ -2,7 +2,7 @@
 
 **Document owner:** Ecommerce Operations
 
-**Author:** Nicolás Cartin Reyes, Lead Developer
+**Author:** Nícolas Cartín Reyes, Lead Developer
 
 **Audience:** Shopify developers, Shopify administrators and technical operators
 
@@ -225,4 +225,4 @@ A descriptive workflow name is recommended for maintainability. Renaming a live 
 
 ## 11. Ownership
 
-This document was authored by **Nicolás Cartin Reyes, Lead Developer**. Any production change requires review by the storefront engineering or ecommerce operations owner responsible for the affected sales channel.
+This document was authored by **Nícolas Cartín Reyes, Lead Developer**. Any production change requires review by the storefront engineering or ecommerce operations owner responsible for the affected sales channel.

@@ -76,7 +76,7 @@ The recommended reading order is to start with the US PDF for the billing bounda
 
 ## Documentation standard
 
-All SOPs in this repository are internal operating documentation for Echelon developers, Shopify administrators and technical operators. The document author is **Nicolás Cartin Reyes**. SOPs must contain actionable procedures, prerequisites, affected files or configuration, validation criteria, troubleshooting guidance and rollback instructions. They must not contain agent identity, chat history, sandbox paths, temporary audit narration, private credentials or other notes that are useful only to the document-generation process.
+All SOPs in this repository are internal operating documentation for Echelon developers, Shopify administrators and technical operators. The document author is **Nícolas Cartín Reyes**. SOPs must contain actionable procedures, prerequisites, affected files or configuration, validation criteria, troubleshooting guidance and rollback instructions. They must not contain agent identity, chat history, sandbox paths, temporary audit narration, private credentials or other notes that are useful only to the document-generation process.
 
 ## ThermaChill companion files
 
