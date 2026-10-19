@@ -42,6 +42,7 @@ The repository currently contains the following SOP documents. Two documents use
 | SOP-016 | [SEO Audit and Controlled Shopify Theme Release](SOP-016-seo-audit-controlled-theme-release.md) ([PDF](SOP-016-seo-audit-controlled-theme-release.pdf)) | Audit technical SEO, test narrow theme changes in QA, deploy only approved files, verify the live pullback, and document rollback and post-deployment validation. |
 | SOP-017 | [UK Member Reward Zone Two-Part Cart Validation](SOP-017-uk-member-reward-zone-two-part-cart-validation.md) | Verify that authenticated member purchase paths add both equipment and companion screen SKUs, trace the responsible handler, and validate safely before deployment. |
 | SOP-018 | [Scheduled Sales-Channel Publication Flow](SOP-018-scheduled-sales-channel-publication-flow.md) | Design, validate and operate a scheduled Shopify Flow that removes inventory-state-tagged products from one approved sales channel without changing Online Store publication or product data. |
+| SOP-019 | [UK Product2026 Responsive Product Template](SOP-019-uk-product2026-responsive-template.md) | Maintain the responsive Product2026 price row, eligible delivery message, membership presentation and scoped product-image lightbox for products already assigned to the template. |
 
 ## SEO Documentation
 
