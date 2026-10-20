@@ -1,20 +1,22 @@
-# SOP-020: Mandatory Plunge Product Template and Chiller Add-ons
+# SOP-020: Plunge Template for Products Without Built-in Chillers
 
 **Author:** Nícolas Cartín Reyes, Lead Developer
 
 ## Policy
 
-Every plunge product in the Echelon Shopify catalog must use the same product template:
+Every plunge product without a built-in chiller must use the same product template:
 
 `pdp2025-tubs-simple`
 
-This includes inflatable plunges, hard plunges, soft plunges and plunge products that offer optional chillers. A plunge product must not remain on `product2024`, `product2024-simple` or another product template after it is identified for the plunge catalog.
+This includes inflatable plunges, hard plunges, soft plunges and plunge products that use optional external chillers. A no-built-in-chiller plunge must not remain on `product2024`, `product2024-simple` or another product template after it is identified for the plunge catalog.
 
-The only permitted exception is a temporary migration or incident state recorded in the private release log with an owner, reason, preview status and target date. A different template is not an acceptable permanent design choice for a plunge product.
+Products with a built-in chiller are outside the scope of this policy. They must remain on the approved built-in-chiller template unless a separate design and migration decision is documented.
+
+The only permitted exception for an in-scope product is a temporary migration or incident state recorded in the private release log with an owner, reason, preview status and target date. A different template is not an acceptable permanent design choice for a plunge without a built-in chiller.
 
 ## Purpose
 
-Maintain one reusable product-page architecture for the plunge catalog. The template provides the shared gallery, product purchase surface, product description, optional chiller add-ons, responsive layout, image zoom, product media and related product sections.
+Maintain one reusable product-page architecture for plunge products without a built-in chiller. The template provides the shared gallery, product purchase surface, product description, optional external chiller add-ons, responsive layout, image zoom, product media and related product sections.
 
 This SOP covers template assignment, add-on configuration, product media fallbacks, preview approval, live pullback and the boundary between shared template behavior and product-specific logic.
 
@@ -22,11 +24,13 @@ This SOP covers template assignment, add-on configuration, product media fallbac
 
 This SOP applies to:
 
-- All products classified as plunges or cold-immersion tubs
+- All products classified as plunges or cold-immersion tubs without a built-in chiller
 - The `pdp2025-tubs-simple` product template
 - The `main-individual-product` section and its add-on settings
-- Optional chiller variant references and display cards
+- Optional external chiller variant references and display cards
 - The product-specific conditions that control add-on headings or modules
+
+Products with a built-in chiller are explicitly out of scope for this template assignment.
 
 It does not create products, change inventory, change shipping rates or publish a product without separate approval.
 
@@ -116,35 +120,37 @@ Example variables:
 }
 ```
 
-Before executing a batch, query every candidate product and record its current `templateSuffix`, handle, status and SKU. The migration must be reversible and must not alter price, inventory, tags, media, description or product status.
+Before executing a batch, query every candidate product and record its built-in-chiller status, current `templateSuffix`, handle, status and SKU. Assign the template only to products without a built-in chiller. The migration must be reversible and must not alter price, inventory, tags, media, description or product status.
 
 ## Migration procedure
 
 1. Build an inventory of every plunge product in the store, including active, draft and scheduled catalog records.
 2. Confirm the product classification with the approved Plunges collection or catalog taxonomy.
-3. Record the current template suffix for each product and identify any non-compliant product.
-4. Pull the current live theme and create a backup of `product.pdp2025-tubs-simple.json`, the shared individual-product snippet and any related JavaScript conditions.
-5. Confirm the shared template contains the current approved chiller variant references and valid image sources.
-6. Update the shared template or its product-specific condition only if the change is required for the migration. Keep that code change separate from the product assignment mutation.
-7. Assign `pdp2025-tubs-simple` to the migration batch through Shopify Admin or the controlled mutation above.
-8. Generate an unpublished-theme preview before final approval. The preview is mandatory and must be shown to the reviewer before the template migration is considered complete.
-9. Preview at least one hard plunge, one soft or inflatable plunge, one product with both chiller add-ons and one product without optional add-ons.
-10. Validate the product gallery, image zoom, price, inventory message, description, add-on cards, membership or purchase controls and mobile layout.
-11. Select and clear each chiller add-on in the preview. Confirm that the cart payload contains the selected chiller variant and the correct base plunge variant.
-12. Deploy only the approved theme files, then pull the live files back and compare them with the release source.
-13. Run a public smoke test on representative plunge products and record the migration result for every product.
+3. Classify each product as either no built-in chiller or built-in chiller using approved product data. Do not infer this from the product title alone.
+4. Record the current template suffix for each no-built-in-chiller product and identify any non-compliant product.
+5. Pull the current live theme and create a backup of `product.pdp2025-tubs-simple.json`, the shared individual-product snippet and any related JavaScript conditions.
+6. Confirm the shared template contains the current approved external chiller variant references and valid image sources.
+7. Update the shared template or its product-specific condition only if the change is required for the migration. Keep that code change separate from the product assignment mutation.
+8. Assign `pdp2025-tubs-simple` only to the no-built-in-chiller migration batch through Shopify Admin or the controlled mutation above.
+9. Generate an unpublished-theme preview before final approval. The preview is mandatory and must be shown to the reviewer before the template migration is considered complete.
+10. Preview at least one hard plunge, one soft or inflatable plunge, one product with both external chiller add-ons and one product without optional add-ons. Keep a built-in-chiller product out of the migration batch as a control.
+11. Validate the product gallery, image zoom, price, inventory message, description, add-on cards, membership or purchase controls and mobile layout.
+12. Select and clear each external chiller add-on in the preview. Confirm that the cart payload contains the selected chiller variant and the correct base plunge variant.
+13. Deploy only the approved theme files, then pull the live files back and compare them with the release source.
+14. Run a public smoke test on representative no-built-in-chiller plunge products and record the migration result for every product.
 
 ## Product-specific conditions
 
 A shared template must not silently fail because a new plunge product is missing from a hardcoded product-ID condition. If a heading, module or add-on behavior depends on product identity, prefer a stable product classification, tag or template-level condition. If a product-ID condition is unavoidable, update it in a separate reviewed code change before assigning the template.
 
-For the Party Plunge, the current state is a migration exception until its product-specific add-on heading and behavior condition are updated, previewed and approved. The product must then be assigned to `pdp2025-tubs-simple`; leaving it on `product2024` is not the final state.
+The Party Plunge does not have a built-in chiller, so it is in scope for this template policy. Its current state is a migration exception until its product-specific external-chiller heading and behavior condition are updated, previewed and approved. The product must then be assigned to `pdp2025-tubs-simple`; leaving it on `product2024` is not the final state.
 
 ## Validation checklist
 
 Use the unpublished preview and confirm:
 
 - The product is rendered by `pdp2025-tubs-simple`.
+- The product is confirmed to have no built-in chiller.
 - The product title, price, compare-at price, inventory state and media are unchanged unless separately approved.
 - The main product gallery and zoom behavior work on desktop and mobile.
 - Both configured chiller cards render valid images with no broken-image icon.
@@ -162,7 +168,8 @@ After deployment, pull the live template back and repeat the public smoke test o
 
 | Symptom | Likely cause | Action |
 |---|---|---|
-| A plunge still shows the old layout | The product has a non-compliant template suffix | Assign `pdp2025-tubs-simple` after preview approval |
+| A no-built-in-chiller plunge still shows the old layout | The product has a non-compliant template suffix | Assign `pdp2025-tubs-simple` after preview approval |
+| A built-in-chiller product is being considered for migration | The product was not classified before the batch | Remove it from this migration and keep its approved built-in-chiller template |
 | Broken add-on image | Deleted or stale Shopify file URL | Replace it with current product media and verify the HTTP response |
 | Correct image in QA but not live | Wrong theme or incomplete push | Confirm the target theme, push only the approved file and pull back the result |
 | Add-on heading does not match the plunge | Product-specific condition excludes the product | Add a reviewed classification-based condition or update the approved product condition |
@@ -172,7 +179,7 @@ After deployment, pull the live template back and repeat the public smoke test o
 
 ## Rollback
 
-If the shared template release causes a storefront regression, restore the previous version of the affected template or shared snippet from the live pullback and push only the affected file. If the issue is limited to one product assignment, restore that product's prior template suffix while the shared template is investigated. Treat the prior suffix as a temporary incident state, not as the permanent catalog standard.
+If the shared template release causes a storefront regression, restore the previous version of the affected template or shared snippet from the live pullback and push only the affected file. If the issue is limited to one no-built-in-chiller product assignment, restore that product's prior template suffix while the shared template is investigated. Treat the prior suffix as a temporary incident state, not as the permanent catalog standard. Do not use this rollback procedure to move a built-in-chiller product onto this template.
 
 Do not replace the full theme, delete product media or change product status as a rollback shortcut.
 
@@ -181,6 +188,7 @@ Do not replace the full theme, delete product media or change product status as 
 Record:
 
 - Product handle, SKU and previous template suffix
+- Built-in-chiller classification and evidence
 - Assigned template suffix: `pdp2025-tubs-simple`
 - Chiller variant IDs and image sources
 - Files changed and theme environment
