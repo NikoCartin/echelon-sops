@@ -43,6 +43,10 @@ The repository currently contains the following SOP documents. Two documents use
 | SOP-017 | [UK Member Reward Zone Two-Part Cart Validation](SOP-017-uk-member-reward-zone-two-part-cart-validation.md) | Verify that authenticated member purchase paths add both equipment and companion screen SKUs, trace the responsible handler, and validate safely before deployment. |
 | SOP-018 | [Scheduled Sales-Channel Publication Flow](SOP-018-scheduled-sales-channel-publication-flow.md) | Design, validate and operate a scheduled Shopify Flow that removes inventory-state-tagged products from one approved sales channel without changing Online Store publication or product data. |
 | SOP-019 | [UK Product2026 Responsive Product Template](SOP-019-uk-product2026-responsive-template.md) | Maintain the responsive Product2026 price row, eligible delivery message, membership presentation and scoped product-image lightbox for products already assigned to the template. |
+| SOP-020 | [Tub Template Chiller Add-ons](SOP-020-tub-template-chiller-add-ons.md) | Configure, validate and troubleshoot optional chiller add-ons, product media fallbacks and product-specific template conditions on plunge-tub pages. |
+| SOP-021 | [Product2025 Anchor Navigation](SOP-021-product2025-anchor-navigation.md) | Connect custom Product2025 navigation labels to real Features, Specs, Membership and Accessories sections without changing purchase logic. |
+| SOP-022 | [Recovery Menu Category Order](SOP-022-recovery-menu-category-order.md) | Reorder Recovery category items in Shopify Navigation while preserving collection destinations and responsive mega-menu behavior. |
+| SOP-023 | [Dual-Brand Logo Same-Tab Links](SOP-023-dual-brand-logo-same-tab-links.md) | Keep the PRIMAL hit area in the combined brand logo in the current browser tab across desktop and mobile header instances. |
 
 ## SEO Documentation
 
