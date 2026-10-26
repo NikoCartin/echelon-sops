@@ -47,6 +47,7 @@ The repository currently contains the following SOP documents. Two documents use
 | SOP-021 | [Product2025 Anchor Navigation](SOP-021-product2025-anchor-navigation.md) | Connect custom Product2025 navigation labels to real Features, Specs, Membership and Accessories sections without changing purchase logic. |
 | SOP-022 | [Recovery Menu Category Order](SOP-022-recovery-menu-category-order.md) | Reorder Recovery category items in Shopify Navigation while preserving collection destinations and responsive mega-menu behavior. |
 | SOP-023 | [Dual-Brand Logo Same-Tab Links](SOP-023-dual-brand-logo-same-tab-links.md) | Keep the PRIMAL hit area in the combined brand logo in the current browser tab across desktop and mobile header instances. |
+| SOP-024 | [Accessibility Launcher and Flash Speed Load Order](SOP-024-accessibility-launcher-flash-speed.md) | Release a small accessibility options launcher without allowing the performance optimizer to prevent its runtime from initializing. |
 
 ## SEO Documentation
 
