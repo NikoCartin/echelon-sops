@@ -48,6 +48,7 @@ The repository currently contains the following SOP documents. Two documents use
 | SOP-022 | [Recovery Menu Category Order](SOP-022-recovery-menu-category-order.md) | Reorder Recovery category items in Shopify Navigation while preserving collection destinations and responsive mega-menu behavior. |
 | SOP-023 | [Dual-Brand Logo Same-Tab Links](SOP-023-dual-brand-logo-same-tab-links.md) | Keep the PRIMAL hit area in the combined brand logo in the current browser tab across desktop and mobile header instances. |
 | SOP-024 | [Accessibility Launcher and Flash Speed Load Order](SOP-024-accessibility-launcher-flash-speed.md) | Release a small accessibility options launcher without allowing the performance optimizer to prevent its runtime from initializing. |
+| SOP-025 | [Guarding Optional Liquid Image URLs](SOP-025-accessibility-invalid-liquid-url-guards.md) | Prevent empty optional image settings from producing invalid Liquid output or CSS background URLs in tested storefront sections. |
 
 ## SEO Documentation
 
