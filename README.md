@@ -49,6 +49,11 @@ The repository currently contains the following SOP documents. Two documents use
 | SOP-023 | [Dual-Brand Logo Same-Tab Links](SOP-023-dual-brand-logo-same-tab-links.md) | Keep the PRIMAL hit area in the combined brand logo in the current browser tab across desktop and mobile header instances. |
 | SOP-024 | [Accessibility Launcher and Flash Speed Load Order](SOP-024-accessibility-launcher-flash-speed.md) | Release a small accessibility options launcher without allowing the performance optimizer to prevent its runtime from initializing. |
 | SOP-025 | [Guarding Optional Liquid Image URLs](SOP-025-accessibility-invalid-liquid-url-guards.md) | Prevent empty optional image settings from producing invalid Liquid output or CSS background URLs in tested storefront sections. |
+| SOP-026 | [WCAG 2.2 AA Theme Audit and Remediation](SOP-026-wcag22-theme-audit-remediation.md) | Audit a theme with automated and keyboard tests, fix issues in an unpublished copy, update the accessibility statement and release only the changed files. |
+| SOP-027 | [Premier Monthly 30-Days Free Trial Operations](SOP-027-premier-30-days-free-trial-operations.md) | Check, change, deploy and roll back the dynamic first-month-free membership discount and its theme messaging. |
+| SOP-028 | [Shop Pay Installments Fallback for the PDP Financing Slot](SOP-028-shop-pay-installments-financing-fallback.md) | Show Shopify's monthly price message when the financing widget is empty, and scope template CSS so it cannot hide PDP prices. |
+| SOP-029 | [In-App Browser and Mobile Checkout Testing](SOP-029-in-app-browser-checkout-testing.md) | Test the full mobile checkout in Instagram, Facebook and Snapchat browsers without placing a real order. |
+| SOP-030 | [UK Per-Product Pre-Order Message](SOP-030-uk-per-product-preorder-message.md) | Enable or remove a pre-order message and "Pre-order now" label on one UK product through a metafield. |
 
 ## SEO Documentation
 
