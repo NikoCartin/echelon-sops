@@ -54,6 +54,8 @@ The repository currently contains the following SOP documents. Two documents use
 | SOP-028 | [Shop Pay Installments Fallback for the PDP Financing Slot](SOP-028-shop-pay-installments-financing-fallback.md) | Show Shopify's monthly price message when the financing widget is empty, and scope template CSS so it cannot hide PDP prices. |
 | SOP-029 | [In-App Browser and Mobile Checkout Testing](SOP-029-in-app-browser-checkout-testing.md) | Test the full mobile checkout in Instagram, Facebook and Snapchat browsers without placing a real order. |
 | SOP-030 | [UK Per-Product Pre-Order Message](SOP-030-uk-per-product-preorder-message.md) | Enable or remove a pre-order message and "Pre-order now" label on one UK product through a metafield. |
+| SOP-031 | [Geo Store Suggestion for Regional Shopify Stores](SOP-031-geo-store-suggestion.md) | Replace IP auto-redirects with a consent-aware, accessible store suggestion and safe deep links. |
+| SOP-032 | [Building Theme Sections from Metaobjects](SOP-032-metaobject-driven-sections.md) | Load repeated content such as coaches from metaobjects so the page updates without code changes. |
 
 ## SEO Documentation
 
