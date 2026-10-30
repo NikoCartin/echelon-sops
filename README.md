@@ -56,6 +56,7 @@ The repository currently contains the following SOP documents. Two documents use
 | SOP-030 | [UK Per-Product Pre-Order Message](SOP-030-uk-per-product-preorder-message.md) | Enable or remove a pre-order message and "Pre-order now" label on one UK product through a metafield. |
 | SOP-031 | [Geo Store Suggestion for Regional Shopify Stores](SOP-031-geo-store-suggestion.md) | Replace IP auto-redirects with a consent-aware, accessible store suggestion and safe deep links. |
 | SOP-032 | [Building Theme Sections from Metaobjects](SOP-032-metaobject-driven-sections.md) | Load repeated content such as coaches from metaobjects so the page updates without code changes. |
+| SOP-033 | [Consumer Financing Landing Section and Template-Swap Release](SOP-033-financing-landing-section.md) | Rebuild a page as one schema-driven section, load the financing script on click safely under speed apps, and release by switching templates. |
 
 ## SEO Documentation
 
