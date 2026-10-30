@@ -3,7 +3,7 @@
 **Author:** Nícolas Cartín Reyes, Lead Developer
 **Date:** October 29, 2026
 **Scope:** Echelon US theme first; CA, UK, DE and FR stores after the US release
-**Status:** Approved technical reference; US release pending approval
+**Status:** Approved technical reference; live on US, Canada, UK, Germany and France (October 29–30, 2026)
 
 ## Purpose
 
@@ -24,6 +24,7 @@ This SOP replaces IP-based auto-redirects with a store suggestion. Visitors from
 - "Go" opens the same product, collection or page on the target store when it exists there (checked against Shopify's public `.js` / `.json` endpoints); otherwise it opens the home page.
 - The dialog waits until the cookie banner is closed and pauses other promo popups while it is open.
 - The choice is stored for 14 days only if preferences or functional consent is given (OneTrust group `C0003` or the Shopify Customer Privacy API). Without consent it lasts for the session only.
+- Germany (Consentmo) and France (Axeptio): the dialog waits until the cookie banner is answered, and the choice is kept for 14 days only after the visitor accepts. Shopify's privacy API reports "allowed" before these banners are answered, so the snippet reads the banner state directly.
 - It never runs for crawlers, in the theme editor, or on checkout and admin URLs.
 - `snippets/footer-region-links.liquid` adds region links in the footer so any visitor can switch stores manually.
 
